@@ -1,10 +1,19 @@
-# stats220
-This is my repo for STATS 220. 
+# Nicodemus Smith - Stats 220
+This is my repo for *STATS220*. 
 
-A little about me:
+## Degree and Majors
+*  Bachelor of Arts
+  * Mathematics
+  * Statistics
 
-- I am doing a Bachelor of Arts, majoring in Mathematics and Statistics
-- I am taking STATS 220 because It's part of my major and I'm interested in Data Science
-- I am interested in learning about data science techniques in this course
+These are the courses I'm taking this Semester (S1 2025):
+1. **Stats220**
+2. Stats125
+3. Compsci130
+4. Math120
+5. Math130
 
-A meme that captures how I currently feel about my university studies is ![]([https://c.tenor.com/8druEACXtX8AAAAd/tenor.gif](https://i.kym-cdn.com/photos/images/newsfeed/002/273/096/51c.gif)
+This was written in ***Markdown***, you can learn basic markdown syntax from [this site](https://www.markdownguide.org/basic-syntax/)
+
+
+[![Markdown Gif](https://pifop.com/images/markdown-introduction.gif)]
