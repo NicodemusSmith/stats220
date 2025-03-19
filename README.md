@@ -2,7 +2,7 @@
 This is my repo for *STATS220*. 
 
 ## Degree and Majors
-*  Bachelor of Arts
+### Bachelor of Arts
   * Mathematics
   * Statistics
 
