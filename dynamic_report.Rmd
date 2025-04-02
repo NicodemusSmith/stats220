@@ -22,7 +22,7 @@ h {
 
 ## Colours, Options and Respective Prices across Auckland Coffee Menus
 
-With this report I will be looking at how does the colour of coffee menus vary across cafes in different areas in Auckland. 
+With this report I will be looking at how does the colour of coffee menus vary across cafes in different areas in Auckland. \n
 Then I will be looking at if some areas are more likely to offer certain coffees than others.
 At the end I will be exploring at the different mean prices for certain coffee types across Auckland.
 
