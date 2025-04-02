@@ -107,8 +107,6 @@ logged_data %>%
        y = "Areas")
 
 
-```
-```{r}
 logged_data %>%
   ggplot() +
   geom_bar(aes(y = area, fill = macchiato)) +
@@ -117,9 +115,7 @@ logged_data %>%
        caption = "Source: Me",
        x = "# of Menus Recorded",
        y = "Areas")
-```
 
-```{r}
 paste0("The lowest mean medium price for a coffee, is a short black, with a mean price of $", mean(logged_data$shortblack_m, na.rm = TRUE) %>% round(2), " and the highest mean medium price for a coffee is an iced mocha, with a mean price of $", mean(logged_data$icedmocha_m, na.rm = TRUE) %>% round(2))
 
 paste0("The cheapest short black you can find is only $", min(logged_data$shortblack_m, na.rm = TRUE)," while the most expensive iced mocha you can get is $", max(logged_data$icedmocha_m, na.rm = TRUE))
