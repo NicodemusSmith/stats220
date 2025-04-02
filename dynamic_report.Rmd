@@ -136,7 +136,7 @@ paste0("The lowest mean medium price for a coffee, is a short black, with a mean
 
 
 
-paste0("A short black ranges from $", min(logged_data$shortblack_m, na.rm = TRUE), " to $", max(logged_data$shortblack_m, na.rm = TRUE), "while the iced mocha ranges from $", min(logged_data$icedmocha_m, na.rm = TRUE), " to $", max(logged_data$icedmocha_m, na.rm = TRUE))
+paste0("A short black ranges from $", min(logged_data$shortblack_m, na.rm = TRUE), " to $", max(logged_data$shortblack_m, na.rm = TRUE), " while the iced mocha ranges from $", min(logged_data$icedmocha_m, na.rm = TRUE), " to $", max(logged_data$icedmocha_m, na.rm = TRUE))
 
 
 paste0("On average you will find that the short black is the ", mean(logged_data$shortblack_pos, na.rm = TRUE) %>% round(), "th coffee offered on a menu, while the iced mocha is on average the ", mean(logged_data$icedmocha_m, na.rm = TRUE) %>% round(), "th coffee offered.")
