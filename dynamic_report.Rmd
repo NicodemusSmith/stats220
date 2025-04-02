@@ -23,9 +23,14 @@ h {
 ## Colours, Options and Respective Prices across Auckland Coffee Menus
 
 With this report I will be looking at how does the colour of coffee menus vary across cafes in different areas in Auckland.
-Then I will be exploring how the presence of the Macchiato on a menu relates to Café area, menu background colour and the presence of an Iced Americano. Please scroll to the right to read all the graphs.
+
+Then I will be exploring how the presence of the Macchiato on a menu relates to Café area,
+
+menu background colour and the presence of an Iced Americano. 
 
 Then I will be looking at the highest and lowest coffee prices.
+
+Please scroll to the right to read all the graphs.
 
 ```{r}
 logged_data <- read_csv("https://raw.githubusercontent.com/NicodemusSmith/stats220/refs/heads/main/CoffeeMenus.csv") %>%
