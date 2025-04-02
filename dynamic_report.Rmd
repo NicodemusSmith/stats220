@@ -24,7 +24,7 @@ h {
 With this report I will be looking at how does the colour of coffee menus vary across cafes in different areas in Auckland. Then I will be looking at if some areas are more likely to offer certain coffees than others, then I will be looking at the different mean prices for certain coffee types across Auckland.
 
 ```{r}
-logged_data <- read_csv("../Project2/CoffeeMenus.csv") %>%
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/1bRHSrO-g7kUvGF8ckZmYA0AAGdB6AaMuRhqnV_oFZo0/edit?usp=sharingv") %>%
   rename(cafe_name = 2,
          address = 3,
          area = 4,
@@ -106,6 +106,7 @@ logged_data <- read_csv("../Project2/CoffeeMenus.csv") %>%
 logged_data %>%
   ggplot() +
   geom_bar(aes(y = area, fill = background)) +
+  scale_fill_manual(values = c("black", "blue", "green", "orange", "white", "yellow", "red", "purple")) +
   labs(title = "Menu Colours Across Auckland",
        subtitle = "Are some menu colours more prominent in some areas than rather others?",
        caption = "Source: Me",
@@ -114,18 +115,17 @@ logged_data %>%
 
 
 ```
-
 ```{r}
 logged_data %>%
   ggplot() +
   geom_bar(aes(y = area, fill = macchiato)) +
+  scale_fill_manual(values = c("black", "green")) +
   labs(title = "Macchiatos in Auckland",
        subtitle = "Are some areas of Auckland more likely to offer a Macchiato than others?",
        caption = "Source: Me",
        x = "# of Menus Recorded",
        y = "Areas")
 ```
-
 
 ```{r}
 paste0("The lowest mean medium price for a coffee, is a short black, with a mean price of $", mean(logged_data$shortblack_m, na.rm = TRUE) %>% round(2), " and the highest mean medium price for a coffee is an iced mocha, with a mean price of $", mean(logged_data$icedmocha_m, na.rm = TRUE) %>% round(2))
