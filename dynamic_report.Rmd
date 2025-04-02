@@ -10,13 +10,7 @@ library(tidyverse)
 ```
 
 ```{css}
-p {
-  font-family: Futura
-}
 
-h {
-  font-family: Futura
-}
 ```
 
 ## Colours, Options and Respective Prices across Auckland Coffee Menus
