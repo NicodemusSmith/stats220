@@ -118,16 +118,39 @@ chart1 <-logged_data %>%
 
 chart2 <- logged_data %>%
   ggplot() +
-  geom_bar(aes(y = area, fill = macchiato)) +
+  geom_bar(aes(x = area, fill = macchiato)) +
   scale_fill_manual(values = c("black", "green")) +
   labs(title = "Macchiatos in Auckland",
        subtitle = "Are some areas of Auckland more likely to offer a Macchiato than others?",
        caption = "Source: Me",
-       x = "# of Menus Recorded",
-       y = "Areas")
+       x = "Areas",
+       y = "# of Menus Recorded")
+
+chart3 <- logged_data %>%
+  ggplot() +
+  geom_bar(aes(x = background, fill = macchiato)) +
+  scale_fill_manual(values = c("black", "green")) +
+  labs(title = "Macchiatos in Auckland Pt 2",
+       subtitle = "Does menu background colour show a relationship too?",
+       caption = "Source: Me",
+       x = "Menu Background Colour",
+       y = "# of Menus Recorded")
+
+
+chart4 <- logged_data %>%
+  ggplot() +
+  geom_bar(aes(x = macchiato, fill = icedamericano)) +
+  scale_fill_manual(values = c("black", "green")) +
+  labs(title = "Macchiatos in Auckland Pt 3",
+       subtitle = "Does having a Macchiato on the menu mean you're more likely to find an Americano?",
+       caption = "Source: Me",
+       x = "Macchiato? (No/Yes)",
+       y = "# of Menus Recorded")
 
 print(chart1)
 print(chart2)
+print(chart3)
+print(chart4)
 
 ```
 
