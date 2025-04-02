@@ -4,12 +4,19 @@ output: html_fragment
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width = 7, fig.height = 5)
 library(tidyverse)
 
 ```
 
 ```{css}
+p {
+  font-family: Futura
+}
+
+h {
+  font-family: Futura
+}
 
 ```
 
@@ -18,7 +25,7 @@ library(tidyverse)
 With this report I will be looking at how does the colour of coffee menus vary across cafes in different areas in Auckland. Then I will be looking at if some areas are more likely to offer certain coffees than others, then I will be looking at the different mean prices for certain coffee types across Auckland.
 
 ```{r}
-logged_data <- read_csv("https://docs.google.com/spreadsheets/d/1bRHSrO-g7kUvGF8ckZmYA0AAGdB6AaMuRhqnV_oFZo0/edit?usp=sharingv") %>%
+logged_data <- read_csv("https://raw.githubusercontent.com/NicodemusSmith/stats220/refs/heads/main/CoffeeMenus.csv") %>%
   rename(cafe_name = 2,
          address = 3,
          area = 4,
@@ -97,28 +104,38 @@ logged_data <- read_csv("https://docs.google.com/spreadsheets/d/1bRHSrO-g7kUvGF8
 
 
 
-logged_data %>%
+chart1 <-logged_data %>%
   ggplot() +
   geom_bar(aes(y = area, fill = background)) +
+  scale_fill_manual(values = c("black", "blue", "green", "orange", "white", "yellow", "red", "purple")) +
   labs(title = "Menu Colours Across Auckland",
        subtitle = "Are some menu colours more prominent in some areas than rather others?",
        caption = "Source: Me",
        x = "# of Menus Recorded",
        y = "Areas")
 
-
-logged_data %>%
+chart2 <- logged_data %>%
   ggplot() +
   geom_bar(aes(y = area, fill = macchiato)) +
+  scale_fill_manual(values = c("black", "green")) +
   labs(title = "Macchiatos in Auckland",
        subtitle = "Are some areas of Auckland more likely to offer a Macchiato than others?",
        caption = "Source: Me",
        x = "# of Menus Recorded",
        y = "Areas")
 
+print(chart1)
+print(chart2)
+
+```
+
+```{r}
 paste0("The lowest mean medium price for a coffee, is a short black, with a mean price of $", mean(logged_data$shortblack_m, na.rm = TRUE) %>% round(2), " and the highest mean medium price for a coffee is an iced mocha, with a mean price of $", mean(logged_data$icedmocha_m, na.rm = TRUE) %>% round(2))
 
 paste0("The cheapest short black you can find is only $", min(logged_data$shortblack_m, na.rm = TRUE)," while the most expensive iced mocha you can get is $", max(logged_data$icedmocha_m, na.rm = TRUE))
 
 paste0("On average you will find that the short black is the ", mean(logged_data$shortblack_pos, na.rm = TRUE) %>% round(), "th coffee offered on a menu, while the iced mocha is on average the ", mean(logged_data$icedmocha_m, na.rm = TRUE) %>% round(), "th coffee offered.")
 ```
+
+
+
