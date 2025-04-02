@@ -119,7 +119,6 @@ logged_data %>%
 logged_data %>%
   ggplot() +
   geom_bar(aes(y = area, fill = macchiato)) +
-  scale_fill_manual(values = c("black", "green")) +
   labs(title = "Macchiatos in Auckland",
        subtitle = "Are some areas of Auckland more likely to offer a Macchiato than others?",
        caption = "Source: Me",
