@@ -106,7 +106,6 @@ logged_data <- read_csv("https://docs.google.com/spreadsheets/d/1bRHSrO-g7kUvGF8
 logged_data %>%
   ggplot() +
   geom_bar(aes(y = area, fill = background)) +
-  scale_fill_manual(values = c("black", "blue", "green", "orange", "white", "yellow", "red", "purple")) +
   labs(title = "Menu Colours Across Auckland",
        subtitle = "Are some menu colours more prominent in some areas than rather others?",
        caption = "Source: Me",
