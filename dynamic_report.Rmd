@@ -4,24 +4,133 @@ output: html_fragment
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE, fig.width = 7, fig.height = 5)
+library(tidyverse)
 
 ```
 
 ```{css}
+p {
+  font-family: Futura
+}
 
+h {
+  font-family: Futura
+}
 ```
 
-## What's going on with this data?
+## Colours, Options and Respective Prices across Auckland Coffee Menus
 
-You need to change the contents of this Rmd! Replace the R code and markdown give below in this template document.
+With this report I will be looking at how does the colour of coffee menus vary across cafes in different areas in Auckland. Then I will be looking at if some areas are more likely to offer certain coffees than others, then I will be looking at the different mean prices for certain coffee types across Auckland.
 
 ```{r}
-pets <- c("cat", "dog", "turtle", "rabbit")
-best_pet <- pets[1]
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/1bRHSrO-g7kUvGF8ckZmYA0AAGdB6AaMuRhqnV_oFZo0/edit?usp=sharingv") %>%
+  rename(cafe_name = 2,
+         address = 3,
+         area = 4,
+         background = 5,
+         text = 6,
+         latte = 7,
+         cappucino = 8,
+         flatwhite = 9,
+         mocha = 10,
+         espresso = 11,
+         longblack = 12,
+         shortblack = 13,
+         americano = 14,
+         affogato = 15,
+         macchiato = 16,
+         icedlatte = 17,
+         icedamericano = 18,
+         icedmocha = 19,
+         irishcoffee = 20,
+         latte_pos = 21,
+         latte_m = 22,
+         latte_l = 23,
+         latte_s = 24,
+         cappucino_pos = 25,
+         cappucino_m = 26,
+         cappucino_l = 27,
+         cappucino_s = 28,
+         flatwhite_pos = 29,
+         flatwhite_m = 30,
+         flatwhite_l = 31,
+         flatwhite_s = 32,
+         mocha_pos = 33,
+         mocha_m = 34,
+         mocha_l = 35,
+         mocha_s = 36,
+         espresso_pos = 37,
+         espresso_m = 38,
+         espresso_l = 39,
+         espresso_s = 40,
+         longblack_pos = 41,
+         longblack_m = 42,
+         longblack_l = 43,
+         longblack_s = 44,
+         shortblack_pos = 45,
+         shortblack_m = 46,
+         shortblack_l = 47,
+         shortblack_s = 48,
+         americano_pos = 49,
+         americano_m = 50,
+         americano_l = 51,
+         americano_s = 52,
+         affogato_pos = 53,
+         affogato_m = 54,
+         affogato_l = 55,
+         affogato_s = 56,
+         macchiato_pos = 57,
+         macchiato_m = 58,
+         macchiato_l = 59,
+         macchiato_s = 60,
+         icedlatte_pos = 61,
+         icedlatte_m = 62,
+         icedlatte_l = 63,
+         icedlatte_s = 64,
+         icedamericano_pos = 65,
+         icedamericano_m = 66,
+         icedamericano_l = 67,
+         icedamericano_s = 68,
+         icedmocha_pos = 69,
+         icedmocha_m = 70,
+         icedmocha_l = 71,
+         icedmocha_s = 72,
+         irishcoffee_pos = 73,
+         irishcoffee_m = 74,
+         irishcoffee_l =75,
+         irishcoffee_s = 76)
+
+
+
+logged_data %>%
+  ggplot() +
+  geom_bar(aes(y = area, fill = background)) +
+  scale_fill_manual(values = c("black", "blue", "green", "orange", "white", "yellow", "red", "purple")) +
+  labs(title = "Menu Colours Across Auckland",
+       subtitle = "Are some menu colours more prominent in some areas than rather others?",
+       caption = "Source: Me",
+       x = "# of Menus Recorded",
+       y = "Areas")
+
 
 ```
+```{r}
+logged_data %>%
+  ggplot() +
+  geom_bar(aes(y = area, fill = macchiato)) +
+  scale_fill_manual(values = c("black", "green")) +
+  labs(title = "Macchiatos in Auckland",
+       subtitle = "Are some areas of Auckland more likely to offer a Macchiato than others?",
+       caption = "Source: Me",
+       x = "# of Menus Recorded",
+       y = "Areas")
+```
 
-The best pet to have is a `r best_pet` of course!
+```{r}
+paste0("The lowest mean medium price for a coffee, is a short black, with a mean price of $", mean(logged_data$shortblack_m, na.rm = TRUE) %>% round(2), " and the highest mean medium price for a coffee is an iced mocha, with a mean price of $", mean(logged_data$icedmocha_m, na.rm = TRUE) %>% round(2))
 
-![](https://c.tenor.com/-qBsG1HwR4oAAAAC/tenor.gif)
+paste0("The cheapest short black you can find is only $", min(logged_data$shortblack_m, na.rm = TRUE)," while the most expensive iced mocha you can get is $", max(logged_data$icedmocha_m, na.rm = TRUE))
+
+paste0("On average you will find that the short black is the ", mean(logged_data$shortblack_pos, na.rm = TRUE) %>% round(), "th coffee offered on a menu, while the iced mocha is on average the ", mean(logged_data$icedmocha_m, na.rm = TRUE) %>% round(), "th coffee offered.")
+```
