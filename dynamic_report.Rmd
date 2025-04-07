@@ -33,7 +33,7 @@ Then I will be looking at the highest and lowest coffee prices.
 Please scroll to the right to read all the graphs.
 
 ```{r}
-logged_data <- read_csv("https://raw.githubusercontent.com/NicodemusSmith/stats220/refs/heads/main/CoffeeMenus.csv") %>%
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vQIMp5H5wDABVsaEKR09zO9R6Lmyo2YjAYgi_aZHhiiJlQc04jC_3Ya9a_gJ6ljJblKJNDFk2yeP2dv/pub?output=csv") %>%
   rename(cafe_name = 2,
          address = 3,
          area = 4,
